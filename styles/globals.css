@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .heroBtn {
+    @apply text-gray-500 z-10 transition-all hover:border-primary/40 hover:text-primary/40 px-6 py-2 border border-[#242424] rounded-full uppercase text-sm tracking-widest;
+  }
+}
+
+.imageDiv {
+  background: url("../img/287859016_756402022054509_2491597428416444573_n.jpg")
+    no-repeat center center/cover;
+}
