@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
 import displayPic from "../img/287859016_756402022054509_2491597428416444573_n.jpg";
 import React from "react";
 import { motion } from "framer-motion";
@@ -20,9 +19,7 @@ const About = (props: Props) => {
       }}
       className="pt-32 sm:pt-0 px-8 relative mx-auto items-center max-w-6xl md:text-left md:flex-row h-screen flex flex-col space-y-8 text-center overflow-hidden"
     >
-      <h3 className="ml-6 sm:ml-0 absolute top-24 uppercase text-gray-500 text-2xl tracking-[20px]">
-        About
-      </h3>
+      <h3 className="pageTitle">About</h3>
       <motion.div
         initial={{
           x: -200,
