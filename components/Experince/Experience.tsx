@@ -19,7 +19,7 @@ const Experience = (props: Props) => {
       className="h-screen pt-32 sm:pt-28 flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-10 justify-evenly mx-auto items-center"
     >
       <h1 className="pageTitle">Experience</h1>
-      <div className="w-full flex space-x-1 overflow-x-scroll p-6 snap-x snap-mandatory">
+      <div className="w-full flex space-x-1 scrollbar-thin scrollbar-thumb-primary scrollbar-track-gray-400/20 overflow-x-scroll p-6 snap-x snap-mandatory">
         <ExperienceCard />
         <ExperienceCard />
         <ExperienceCard />

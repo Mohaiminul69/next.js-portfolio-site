@@ -19,11 +19,11 @@ const Skills = (props: Props) => {
       className="h-screen pt-32 sm:pt-28 flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-10 justify-center mx-auto items-center"
     >
       <h1 className="pageTitle">Skills</h1>
-      <h3 className="absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm">
+      <h3 className="text-center absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm">
         Hover over for currency profieciency
       </h3>
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 sm:gap-4 gap-2">
         <Skill directionLeft={true} />
         <Skill directionLeft={true} />
         <Skill directionLeft={true} />

@@ -22,27 +22,35 @@ const Projects = (props: Props) => {
     >
       <h1 className="pageTitle">Projects</h1>
 
-      <div className="h-full space-y-4 relative flex overflow-x-scroll w-full overflow-y-hidden z-20 snap-x snap-mandatory">
+      <div className="h-full space-y-4 relative flex scrollbar-thin scrollbar-thumb-primary scrollbar-track-gray-400/20 overflow-x-scroll w-full overflow-y-hidden z-20 snap-x snap-mandatory">
         {projects.map((project, index) => (
           <div
             key={index}
             className="h-full p-20 z-20 w-screen flex-shrink-0 snap-center flex flex-col justify-center items-center"
           >
-            <div className="w-16 h-16 relative rounded-full overflow-hidden">
+            <motion.div
+              initial={{
+                y: -200,
+                opacity: 0,
+              }}
+              transition={{ duration: 1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="w-28 h-28 sm:w-60 sm:h-60 relative rounded-full overflow-hidden"
+            >
               <Image src={displayPic} layout="fill" alt="dp" />
-            </div>
-            <div className="space-y-6 px-8 md:px-10 max-w-3xl">
-              <h4 className="text-2xl font-semibold text-center mt-8">
+            </motion.div>
+            <div className="sm:space-y-6 space-y-2 px-1 md:px-10 max-w-3xl">
+              <h4 className="sm:text-2xl text-md font-semibold text-center mt-8">
                 <span className="underline decoration-primary/50">
                   Case Study {index + 1} of {projects.length}:
                 </span>{" "}
                 UPs Clone
               </h4>
               <p className="text-lg text-center md:text-left">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Quaerat natus, mollitia nostrum fugiat error beatae molestias,
-                reiciendis perferendis sint dolore laudantium suscipit soluta
-                consequuntur ipsa.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Doloribus fugiat similique excepturi tempora ducimus officia
+                sapiente consequatur distinctio, in quaerat.
               </p>
             </div>
           </div>
