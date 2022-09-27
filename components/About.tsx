@@ -2,10 +2,15 @@
 import displayPic from "../img/287859016_756402022054509_2491597428416444573_n.jpg";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { urlFor } from "../sanity";
+import { PageInfo } from "../typings";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-const About = (props: Props) => {
+const About = ({ pageInfo }: Props) => {
   return (
     <motion.div
       initial={{
@@ -31,19 +36,21 @@ const About = (props: Props) => {
         }}
         transition={{ duration: 1.2 }}
         viewport={{ once: true }}
-        className="sm:w-[300px] sm:h-[400px] sm:rounded-xl mt-36 imageDiv md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover"
-      ></motion.div>
+        className="sm:w-[300px] sm:h-[400px] sm:rounded-xl mt-36 relative md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover overflow-hidden"
+      >
+        <Image
+          src={urlFor(pageInfo.HeroImage).url()}
+          layout="fill"
+          objectFit="cover"
+          alt="dp"
+        />
+      </motion.div>
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-2xl font-semibold">
           Here is a <span className="underline decoration-primary">little</span>{" "}
           Background
         </h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-          hic nihil doloremque dignissimos cupiditate voluptatem provident
-          similique tempora quibusdam omnis in minima, possimus odio voluptates,
-          aliquam deserunt, eum obcaecati eos?
-        </p>
+        <p>{pageInfo.backgroundInformation}</p>
       </div>
     </motion.div>
   );

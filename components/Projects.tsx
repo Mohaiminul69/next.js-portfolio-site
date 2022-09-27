@@ -2,11 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import displayPic from "../img/287859016_756402022054509_2491597428416444573_n.jpg";
+import { Project } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-const Projects = (props: Props) => {
-  const projects = [1, 2, 3, 4, 5, 6];
+const Projects = ({ projects }: Props) => {
   return (
     <motion.div
       initial={{
@@ -38,19 +41,31 @@ const Projects = (props: Props) => {
               viewport={{ once: true }}
               className="w-28 h-28 sm:w-60 sm:h-60 relative rounded-full overflow-hidden"
             >
-              <Image src={displayPic} layout="fill" alt="dp" />
+              <Image src={urlFor(project.image).url()} layout="fill" alt="dp" />
             </motion.div>
             <div className="sm:space-y-6 space-y-2 px-1 md:px-10 max-w-3xl">
               <h4 className="sm:text-2xl text-md font-semibold text-center mt-8">
                 <span className="underline decoration-primary/50">
                   Case Study {index + 1} of {projects.length}:
                 </span>{" "}
-                UPs Clone
+                {project.title}
               </h4>
+              <div className="flex items-center justify-center">
+                {project?.technologies.map((tech) => (
+                  <div
+                    key={tech._id}
+                    className="w-6 h-6 sm:w-6 sm:h-6 relative rounded-full overflow-hidden"
+                  >
+                    <Image
+                      src={urlFor(tech.image).url()}
+                      layout="fill"
+                      alt="dp"
+                    />
+                  </div>
+                ))}
+              </div>
               <p className="text-lg text-center md:text-left">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Doloribus fugiat similique excepturi tempora ducimus officia
-                sapiente consequatur distinctio, in quaerat.
+                {project.summary}
               </p>
             </div>
           </div>

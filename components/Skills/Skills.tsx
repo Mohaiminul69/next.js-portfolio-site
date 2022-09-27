@@ -1,10 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Skill from "./Skill";
+import { Skill as Skills } from "../../typings";
 
-type Props = {};
+type Props = {
+  skills: Skills[];
+};
 
-const Skills = (props: Props) => {
+const Skills = ({ skills }: Props) => {
   return (
     <motion.div
       initial={{
@@ -24,22 +27,12 @@ const Skills = (props: Props) => {
       </h3>
 
       <div className="grid grid-cols-4 sm:gap-4 gap-2">
-        <Skill directionLeft={true} />
-        <Skill directionLeft={true} />
-        <Skill directionLeft={true} />
-        <Skill directionLeft={true} />
-        <Skill directionLeft={false} />
-        <Skill directionLeft={false} />
-        <Skill directionLeft={false} />
-        <Skill directionLeft={false} />
-        <Skill directionLeft={true} />
-        <Skill directionLeft={true} />
-        <Skill directionLeft={true} />
-        <Skill directionLeft={true} />
-        <Skill directionLeft={false} />
-        <Skill directionLeft={false} />
-        <Skill directionLeft={false} />
-        <Skill directionLeft={false} />
+        {skills?.slice(0, skills.length / 2).map((skill) => (
+          <Skill key={skill._id} skill={skill} directionLeft />
+        ))}
+        {skills?.slice(skills.length / 2, skills.length).map((skill) => (
+          <Skill key={skill._id} skill={skill} />
+        ))}
       </div>
     </motion.div>
   );
